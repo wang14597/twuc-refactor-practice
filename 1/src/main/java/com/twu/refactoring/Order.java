@@ -3,22 +3,22 @@ package com.twu.refactoring;
 import java.util.List;
 
 public class Order {
-    String nm;
-    String addr;
+    String numberId;
+    String address;
     List<LineItem> li;
 
-    public Order(String nm, String addr, List<LineItem> li) {
-        this.nm = nm;
-        this.addr = addr;
-        this.li = li;
+    public Order(String numberId, String address, List<LineItem> lineItems) {
+        this.numberId = numberId;
+        this.address = address;
+        this.li = lineItems;
     }
 
     public String getCustomerName() {
-        return nm;
+        return numberId;
     }
 
     public String getCustomerAddress() {
-        return addr;
+        return address;
     }
 
     public List<LineItem> getLineItems() {
