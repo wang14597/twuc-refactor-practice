@@ -51,7 +51,7 @@ public class Direction {
 
     @Override
     public int hashCode() {
-        return (int) direction;
+        return direction;
     }
 
     @Override
