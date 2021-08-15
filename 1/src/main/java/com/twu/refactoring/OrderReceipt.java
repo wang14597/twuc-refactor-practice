@@ -18,16 +18,19 @@ public class OrderReceipt {
         output.append("======Printing Orders======\n");
         output.append(order.getCustomerName());
         output.append(order.getCustomerAddress());
+        double totalPrice = getTotalPrice(output);
+        output.append("Sales Tax").append('\t').append(totalPrice / 11);
+        output.append("Total Amount").append('\t').append(totalPrice);
+        return output.toString();
+    }
 
+    private double getTotalPrice(StringBuilder output) {
         double totalPrice = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             extracted(output, lineItem);
             totalPrice += lineItem.totalAmount() + lineItem.salesTax();
         }
-
-        output.append("Sales Tax").append('\t').append(totalPrice / 11);
-        output.append("Total Amount").append('\t').append(totalPrice);
-        return output.toString();
+        return totalPrice;
     }
 
     private void extracted(StringBuilder output, LineItem lineItem) {
